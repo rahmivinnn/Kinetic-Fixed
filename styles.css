@@ -506,6 +506,56 @@ body {
     display: block;
 }
 
+/* Resources */
+.resources {
+    padding: 80px 0;
+    background: #F7FAFC;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.resource-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.resource-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.resource-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #1A202C;
+}
+
+.resource-card p {
+    color: #4A5568;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.resource-card .btn {
+    margin-top: auto;
+}
+
 /* Final CTA */
 .final-cta {
     padding: 80px 0;

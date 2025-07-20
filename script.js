@@ -104,6 +104,116 @@ function toggleMobileMenu() {
     nav.classList.toggle('mobile-active');
 }
 
+// Button functionality for navigation and actions
+document.addEventListener('DOMContentLoaded', function() {
+    // Login button functionality
+    const loginButtons = document.querySelectorAll('.btn-outline');
+    loginButtons.forEach(button => {
+        if (button.textContent.trim() === 'Log In') {
+            button.addEventListener('click', function() {
+                window.location.href = '/auth.html';
+            });
+        }
+    });
+
+    // Book Consultation button functionality
+    const bookConsultationButtons = document.querySelectorAll('.btn-primary');
+    bookConsultationButtons.forEach(button => {
+        if (button.textContent.trim() === 'Book Consultation') {
+            button.addEventListener('click', function() {
+                window.location.href = '/booking-system.html';
+            });
+        }
+    });
+
+    // Start Your Recovery Journey button
+    const startJourneyButtons = document.querySelectorAll('.btn-primary');
+    startJourneyButtons.forEach(button => {
+        if (button.textContent.trim() === 'Start Your Recovery Journey') {
+            button.addEventListener('click', function() {
+                window.location.href = '/auth.html';
+            });
+        }
+    });
+
+    // Start Free Trial button
+    const startTrialButtons = document.querySelectorAll('.btn-outline');
+    startTrialButtons.forEach(button => {
+        if (button.textContent.trim() === 'Start Free Trial') {
+            button.addEventListener('click', function() {
+                window.location.href = '/auth.html';
+            });
+        }
+    });
+
+    // Schedule Demo button
+    const scheduleDemoButtons = document.querySelectorAll('.btn-primary');
+    scheduleDemoButtons.forEach(button => {
+        if (button.textContent.trim() === 'Schedule Demo') {
+            button.addEventListener('click', function() {
+                window.location.href = '/booking-system.html';
+            });
+        }
+    });
+
+    // Resources link functionality
+    const resourcesLinks = document.querySelectorAll('a[href="#resources"]');
+    resourcesLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Scroll to resources section or show resources modal
+            const resourcesSection = document.querySelector('#resources');
+            if (resourcesSection) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = resourcesSection.offsetTop - headerHeight - 20;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            } else {
+                // If no resources section, redirect to a resources page
+                window.location.href = '/resources.html';
+            }
+        });
+    });
+
+    // Watch Demo button functionality
+    const watchDemoButtons = document.querySelectorAll('.btn-outline');
+    watchDemoButtons.forEach(button => {
+        if (button.innerHTML.includes('Watch Demo')) {
+            button.addEventListener('click', function() {
+                // You can add a video modal or redirect to a demo page
+                alert('Demo video will be available soon! For now, please explore our platform features.');
+            });
+        }
+    });
+
+    // Resource card button functionality
+    const resourceButtons = document.querySelectorAll('.resource-card .btn');
+    resourceButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const buttonText = button.textContent.trim();
+            switch(buttonText) {
+                case 'View Library':
+                    alert('Exercise Library will be available soon! Please check back later.');
+                    break;
+                case 'Read Guides':
+                    alert('Recovery Guides will be available soon! Please check back later.');
+                    break;
+                case 'Watch Videos':
+                    alert('Video Tutorials will be available soon! Please check back later.');
+                    break;
+                case 'Track Progress':
+                    window.location.href = '/patient-dashboard.html';
+                    break;
+                default:
+                    alert('This feature will be available soon!');
+            }
+        });
+    });
+});
+
 // Form validation for contact forms (if added later)
 function validateForm(form) {
     const inputs = form.querySelectorAll('input[required], textarea[required]');
