@@ -3,54 +3,659 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KINETIC - Personalized Recovery Powered by Movement Intelligence</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>KINETIC - Recovery Powered by Movement Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background-color: #fafafa;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #1a202c;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #20c997;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a202c;
+        }
+
+        .btn-outline {
+            background: white;
+            color: #1a202c;
+            border: 2px solid #1a202c;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: #1a202c;
+            color: white;
+        }
+
+        .btn-primary {
+            background: #1a202c;
+            color: white;
+            border: 2px solid #1a202c;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #2d3748;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #1a202c;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-demo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-illustration {
+            background: #fdf2f8;
+            border: 2px dashed #fbb6ce;
+            border-radius: 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .illustration-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2rem;
+            width: 100%;
+            height: 100%;
+        }
+
+        .illustration-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #1a202c;
+        }
+
+        .illustration-item i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .illustration-item.doctor i {
+            color: #20c997;
+        }
+
+        .illustration-item.book i {
+            color: #3b82f6;
+        }
+
+        .illustration-item.chart i {
+            color: #10b981;
+        }
+
+        .illustration-item.patient i {
+            color: #f59e0b;
+        }
+
+        .illustration-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #20c997, #3b82f6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .feature-card p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: #f7fafc;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: #20c997;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1a202c;
+        }
+
+        .step p {
+            color: #4a5568;
+        }
+
+        /* Practitioners Section */
+        .practitioners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .practitioner-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease;
+        }
+
+        .practitioner-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .practitioner-image {
+            height: 200px;
+            background: linear-gradient(135deg, #e0f2fe, #b3e5fc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #20c997;
+            font-size: 3rem;
+        }
+
+        .practitioner-content {
+            padding: 2rem;
+        }
+
+        .practitioner-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .practitioner-content p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #20c997, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-info h4 {
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-info p {
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #1a202c;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: #1a202c;
+            border: 2px solid white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-white:hover {
+            background: transparent;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e3a8a;
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: #cbd5e0;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-column h4 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #cbd5e0;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .illustration-content {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 3rem 1rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
             <div class="logo">
                 <div class="logo-icon">K</div>
                 <span>KINETIC</span>
             </div>
-            <nav class="nav">
+            <div class="nav-links">
                 <a href="#features">Features</a>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#success-stories">Success Stories</a>
                 <a href="#resources">Resources</a>
-                <button class="btn btn-outline">Log In</button>
-                <button class="btn btn-primary">Book Consultation</button>
-            </nav>
+                <a href="auth.html" class="btn-outline">Log In</a>
+                <a href="#consultation" class="btn-primary">Book Consultation</a>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
+        <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Personalized Recovery Powered by Movement Intelligence</h1>
-                    <p>Transform your rehabilitation with intelligent movement coaching and data-driven therapy. Our platform bridges home exercises with clinical expertise for a smoother, faster recovery experience.</p>
-                    <div class="hero-buttons">
-                        <button class="btn btn-primary btn-large">Start Your Recovery Journey</button>
-                        <button class="btn btn-outline btn-large">
-                            <span class="play-icon">▶</span>
-                            Watch Demo
-                        </button>
-                    </div>
+                <h1>Recovery Powered by Movement Intelligence</h1>
+                <p>Transform your rehabilitation with intelligent movement coaching and data-driven therapy. Our platform bridges home exercises with clinical expertise for a smoother, faster recovery experience.</p>
+                <div class="hero-buttons">
+                    <a href="#start-journey" class="btn-primary">Start Your Recovery Journey</a>
+                    <a href="#demo" class="btn-outline btn-demo">
+                        <i class="fas fa-play"></i>
+                        Watch Demo
+                    </a>
                 </div>
-                <div class="hero-image">
-                    <div class="placeholder-image">
-                        <div class="rehab-scene">
-                            <div class="therapist">👨‍⚕️</div>
-                            <div class="patient">👩‍🦽</div>
-                            <div class="screens">
-                                <div class="screen screen-left">🗺️</div>
-                                <div class="screen screen-right">📊</div>
-                            </div>
-                        </div>
+            </div>
+            <div class="hero-illustration">
+                <div class="illustration-content">
+                    <div class="illustration-item doctor">
+                        <i class="fas fa-user-md"></i>
+                        <span>Practitioner</span>
+                    </div>
+                    <div class="illustration-item book">
+                        <i class="fas fa-book-open"></i>
+                        <span>Treatment Plan</span>
+                    </div>
+                    <div class="illustration-item chart">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Analytics</span>
+                    </div>
+                    <div class="illustration-item patient">
+                        <i class="fas fa-wheelchair"></i>
+                        <span>Patient</span>
                     </div>
                 </div>
             </div>
@@ -58,391 +663,253 @@
     </section>
 
     <!-- Smart Rehabilitation Ecosystem -->
-    <section class="ecosystem" id="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Smart Rehabilitation Ecosystem</h2>
-                <p>Comprehensive tools designed to empower patients and clinicians.</p>
+    <section class="section" id="features">
+        <div class="section-header">
+            <h2>Smart Rehabilitation Ecosystem</h2>
+            <p>Comprehensive tools designed to enhance patient outcomes and streamline practice workflows.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Movement Intelligence</h3>
+                <p>Advanced AI algorithms analyze movement patterns to provide personalized exercise recommendations and real-time feedback for optimal recovery.</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">M</div>
-                    <div class="feature-image">
-                        <div class="placeholder-image">🏃‍♂️</div>
-                    </div>
-                    <h3>Movement Intelligence</h3>
-                    <p>Computer vision technology that analyzes each movement to ensure therapeutic effectiveness.</p>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-clipboard-list"></i>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">R</div>
-                    <div class="feature-image">
-                        <div class="placeholder-image">📱</div>
-                    </div>
-                    <h3>Responsive Therapy Plans</h3>
-                    <p>Dynamic individualized prescriptions that evolve based on your performance and recovery indicators.</p>
+                <h3>Responsive Therapy Plans</h3>
+                <p>Dynamic treatment plans that adapt to your progress, ensuring continuous improvement and preventing plateaus in your recovery journey.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">A</div>
-                    <div class="feature-image">
-                        <div class="placeholder-image">📊</div>
-                    </div>
-                    <h3>Recovery Analytics</h3>
-                    <p>Visualize progress reports with actionable insights to keep you recovery on track.</p>
+                <h3>Recovery Analytics</h3>
+                <p>Comprehensive data visualization and progress tracking to help you understand your recovery patterns and celebrate milestones.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">P</div>
-                    <div class="feature-image">
-                        <div class="placeholder-image">🔒</div>
-                    </div>
-                    <h3>Clinical-Grade Privacy</h3>
-                    <p>Strict data security, ensuring your medical information meets healthcare compliance standards.</p>
-                </div>
+                <h3>Clinical-Grade Privacy</h3>
+                <p>HIPAA-compliant security measures ensure your health data remains protected while enabling seamless collaboration with your care team.</p>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <div class="section-header">
-                <h2>How It Works</h2>
-                <p>Three simple steps to start your recovery journey.</p>
-            </div>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Initial Assessment</h3>
-                    <p>Complete a comprehensive evaluation of your condition and goals.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Personalized Plan</h3>
-                    <p>Receive a customized therapy program tailored to your needs.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Track Progress</h3>
-                    <p>Monitor your movements with detailed analytics and feedback.</p>
-                </div>
-            </div>
+    <section class="section how-it-works" id="how-it-works">
+        <div class="section-header">
+            <h2>How It Works</h2>
+            <p>Three simple steps to start your recovery journey</p>
         </div>
-    </section>
-
-    <!-- Website Features -->
-    <section class="website-features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Website Features</h2>
-                <p>Discover what makes our platform unique.</p>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Initial Assessment</h3>
+                <p>Complete a comprehensive evaluation to understand your current condition and recovery goals.</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">M</div>
-                    <div class="feature-image">
-                        <div class="placeholder-image">📱💻</div>
-                    </div>
-                    <h3>Mobile Responsive</h3>
-                    <p>Access your rehabilitation program from any device.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <div class="feature-image">
-                        <div class="placeholder-image">🚀</div>
-                    </div>
-                    <h3>Fast Loading</h3>
-                    <p>Optimized performance for seamless user experience.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">♿</div>
-                    <div class="feature-image">
-                        <div class="placeholder-image">♿</div>
-                    </div>
-                    <h3>Accessibility</h3>
-                    <p>Designed for users of all abilities.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <div class="feature-image">
-                        <div class="placeholder-image">📈</div>
-                    </div>
-                    <h3>Real-time Updates</h3>
-                    <p>Instant feedback and progress tracking.</p>
-                </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Personalized Plan</h3>
+                <p>Receive a customized treatment plan designed specifically for your needs and recovery timeline.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Success Metrics -->
-    <section class="success-metrics">
-        <div class="container">
-            <div class="section-header">
-                <h2>Success Metrics</h2>
-                <p>Real impact, through innovative rehabilitation technology.</p>
-            </div>
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-image">
-                        <div class="placeholder-image">👩‍⚕️👨‍⚕️👩‍⚕️</div>
-                    </div>
-                    <div class="metric-number">95%</div>
-                    <div class="metric-title">Patient Satisfaction</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-image">
-                        <div class="placeholder-image">🏃‍♂️</div>
-                    </div>
-                    <div class="metric-number">40%</div>
-                    <div class="metric-title">Faster Recovery</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-image">
-                        <div class="placeholder-image">📈</div>
-                    </div>
-                    <div class="metric-number">10k+</div>
-                    <div class="metric-title">Active Users</div>
-                </div>
-                <div class="metric-card">
-                    <div class="metric-image">
-                        <div class="placeholder-image">🤝</div>
-                    </div>
-                    <div class="metric-number">500+</div>
-                    <div class="metric-title">Partner Clinics</div>
-                </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Track Progress</h3>
+                <p>Monitor your improvement with real-time analytics and adjust your program as needed.</p>
             </div>
         </div>
     </section>
 
     <!-- For Practitioners -->
-    <section class="practitioners">
-        <div class="container">
-            <div class="section-header">
-                <h2>For Practitioners</h2>
-                <p>Enhance your practice with AI-powered rehabilitation tools.</p>
-            </div>
-            <div class="practitioners-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">👤</div>
-                    <div class="feature-image">
-                        <div class="placeholder-image">👨‍⚕️💻</div>
-                    </div>
+    <section class="section" id="practitioners">
+        <div class="section-header">
+            <h2>For Practitioners</h2>
+            <p>Enhance your practice with AI-powered rehabilitation tools</p>
+        </div>
+        <div class="practitioners-grid">
+            <div class="practitioner-card">
+                <div class="practitioner-image">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div class="practitioner-content">
                     <h3>Clinical Integration</h3>
-                    <p>Seamlessly integrate AI-powered movement analysis into your existing workflow.</p>
+                    <p>Seamlessly integrate AI-powered tools into your existing workflow to enhance patient care and improve outcomes.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <div class="feature-image">
-                        <div class="placeholder-image">📈</div>
-                    </div>
+            </div>
+            <div class="practitioner-card">
+                <div class="practitioner-image">
+                    <i class="fas fa-monitor-heart-rate"></i>
+                </div>
+                <div class="practitioner-content">
                     <h3>Patient Monitoring</h3>
-                    <p>Track patient progress with real-time data to adjust and optimize care plans.</p>
+                    <p>Real-time patient monitoring and progress tracking to make informed treatment decisions and optimize care plans.</p>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏥</div>
-                    <div class="feature-image">
-                        <div class="placeholder-image">👩‍⚕️👨‍⚕️</div>
-                    </div>
+            </div>
+            <div class="practitioner-card">
+                <div class="practitioner-image">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <div class="practitioner-content">
                     <h3>Practice Growth</h3>
-                    <p>Expand your services with remote care to reach more patients and improve outcomes.</p>
+                    <p>Expand your practice capabilities with advanced analytics and patient engagement tools that drive better outcomes.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="testimonials" id="success-stories">
-        <div class="container">
-            <div class="section-header">
-                <h2>See how patients like you achieved their rehabilitation goals with AI assistance</h2>
-                <p>Hear from our patients.</p>
-            </div>
-            <div class="testimonials-image">
-                <div class="placeholder-image">👥</div>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-avatar">
-                        <div class="placeholder-image">👤</div>
-                    </div>
-                    <div class="testimonial-content">
+    <section class="section" id="success-stories">
+        <div class="section-header">
+            <h2>See how patients like you achieved their rehabilitation goals with AI assistance</h2>
+            <p>Real results from real patients</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">SM</div>
+                    <div class="testimonial-info">
                         <h4>Sarah M.</h4>
-                        <p class="testimonial-role">Lower Back Rehabilitation</p>
-                        <p class="testimonial-quote">"The AI-guided exercises and real-time feedback helped me improve my core strength faster than expected. It's been a truly vital therapy!"</p>
+                        <p>Post-surgery rehabilitation</p>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-avatar">
-                        <div class="placeholder-image">👤</div>
-                    </div>
-                    <div class="testimonial-content">
+                <div class="testimonial-quote">
+                    "KINETIC AI transformed my recovery journey. The personalized exercises and real-time feedback helped me regain strength faster than I ever expected."
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">MR</div>
+                    <div class="testimonial-info">
                         <h4>Michael R.</h4>
-                        <p class="testimonial-role">Sports Recovery</p>
-                        <p class="testimonial-quote">"As a professional athlete, recovery is crucial. This platform provided me with accurate insights, significantly speeding my return to play."</p>
+                        <p>Sports injury recovery</p>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-avatar">
-                        <div class="placeholder-image">👤</div>
-                    </div>
-                    <div class="testimonial-content">
+                <div class="testimonial-quote">
+                    "The AI-powered insights helped me understand my progress better. I was back on the field in half the expected time."
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">DL</div>
+                    <div class="testimonial-info">
                         <h4>David L.</h4>
-                        <p class="testimonial-role">Chronic Pain Management</p>
-                        <p class="testimonial-quote">"I've managed chronic pain for years, but this platform's AI-guided movements and progress tracking have made a significant difference in my daily comfort and mobility."</p>
+                        <p>Chronic pain management</p>
                     </div>
+                </div>
+                <div class="testimonial-quote">
+                    "After years of struggling with chronic pain, KINETIC AI's personalized approach finally gave me the tools I needed to manage my condition effectively."
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Resources -->
-    <section class="resources" id="resources">
-        <div class="container">
-            <div class="section-header">
-                <h2>Resources</h2>
-                <p>Access helpful resources to support your recovery journey.</p>
-            </div>
-            <div class="resources-grid">
-                <div class="resource-card">
-                    <div class="resource-icon">📚</div>
-                    <h3>Exercise Library</h3>
-                    <p>Comprehensive collection of rehabilitation exercises with detailed instructions and video demonstrations.</p>
-                    <button class="btn btn-outline">View Library</button>
-                </div>
-                <div class="resource-card">
-                    <div class="resource-icon">📖</div>
-                    <h3>Recovery Guides</h3>
-                    <p>Expert-written guides covering various rehabilitation topics and recovery strategies.</p>
-                    <button class="btn btn-outline">Read Guides</button>
-                </div>
-                <div class="resource-card">
-                    <div class="resource-icon">🎥</div>
-                    <h3>Video Tutorials</h3>
-                    <p>Step-by-step video tutorials for proper exercise form and technique.</p>
-                    <button class="btn btn-outline">Watch Videos</button>
-                </div>
-                <div class="resource-card">
-                    <div class="resource-icon">📊</div>
-                    <h3>Progress Tracking</h3>
-                    <p>Tools and templates to help you track your rehabilitation progress effectively.</p>
-                    <button class="btn btn-outline">Track Progress</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="faq">
-        <div class="container">
-            <div class="section-header">
-                <h2>Frequently Asked Questions</h2>
-                <p>Find answers to common questions about our platform.</p>
-            </div>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How does the AI movement analysis work?</h3>
-                        <span class="faq-arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Our AI uses computer vision technology to analyze your movements in real-time, providing instant feedback and ensuring exercises are performed correctly.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Can I use this platform with my existing healthcare provider?</h3>
-                        <span class="faq-arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutely! Our platform is designed to integrate seamlessly with your current healthcare provider's care, ensuring a collaborative approach to your recovery.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Is my medical data secure?</h3>
-                        <span class="faq-arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we employ HIPAA-compliant measures and encryption protocols to protect your personal health information.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What equipment do I need?</h3>
-                        <span class="faq-arrow">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>All you need is a smartphone or tablet with a camera. Our platform is designed to work with minimal and readily available hardware.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Take the First Step Toward Better Recovery</h2>
-                <p>Join a community of successful recoveries supported by cutting-edge rehabilitation technology.</p>
-                <div class="cta-buttons">
-                    <button class="btn btn-outline btn-large">Start Free Trial</button>
-                    <button class="btn btn-primary btn-large">Schedule Demo</button>
-                </div>
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Take the First Step Toward Better Recovery</h2>
+            <p>Join a community of successful recoveries supported by cutting-edge rehabilitation technology.</p>
+            <div class="cta-buttons">
+                <a href="#trial" class="btn-primary">Start Free Trial</a>
+                <a href="#demo" class="btn-white">Schedule Demo</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="footer-container">
             <div class="footer-content">
-                <div class="footer-left">
-                    <div class="footer-logo">
-                        <div class="logo-icon">K</div>
-                        <span>KINETIC</span>
-                    </div>
-                    <p>Empowering lives through movement intelligence and data-driven care.</p>
+                <div class="footer-brand">
+                    <h3>KINETIC AI</h3>
+                    <p>Transforming rehabilitation through movement intelligence and personalized care.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link">LinkedIn</a>
-                        <a href="#" class="social-link">Twitter</a>
-                        <a href="#" class="social-link">Facebook</a>
-                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="footer-columns">
-                    <div class="footer-column">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Press</a></li>
-                            <li><a href="#">Blog</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Resources</h4>
-                        <ul>
-                            <li><a href="#">Documentation</a></li>
-                            <li><a href="#">Help Center</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Contact</h4>
-                        <ul>
-                            <li><a href="mailto:info@kinetic.com">info@kinetic.com</a></li>
-                            <li><a href="tel:1-800-KINETIC">1-800-KINETIC</a></li>
-                            <li>123 Recovery Road, Health City, CA 90210</li>
-                        </ul>
-                    </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Press</a>
+                    <a href="#">Blog</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <a href="#">Documentation</a>
+                    <a href="#">Help Center</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <a href="mailto:support@kineticai.com">support@kineticai.com</a>
+                    <a href="tel:+1-555-123-4567">+1 (555) 123-4567</a>
+                    <a href="#">123 Recovery Street<br>Health City, HC 12345</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 KINETIC. All rights reserved.</p>
+                <p>&copy; 2024 Movement Intelligence. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = 'white';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
+
+        // Add animation on scroll for feature cards
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards and testimonial cards
+        document.querySelectorAll('.feature-card, .testimonial-card, .practitioner-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html> 
