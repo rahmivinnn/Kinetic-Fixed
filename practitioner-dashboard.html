@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KINETIC - Practitioner Dashboard</title>
+    <link rel="stylesheet" href="dashboard-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">K</div>
+                <span>KINETIC</span>
+            </div>
+            <div class="header-actions">
+                <div class="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">5</span>
+                </div>
+                <div class="user-menu">
+                    <img src="https://via.placeholder.com/40x40" alt="Practitioner Avatar" class="user-avatar">
+                    <span class="user-name">Dr. Sarah Smith</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="#overview" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Overview</span>
+                </a>
+                <a href="#patients" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    <span>Patients</span>
+                </a>
+                <a href="#appointments" class="nav-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Appointments</span>
+                </a>
+                <a href="#treatment-plans" class="nav-item">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Treatment Plans</span>
+                </a>
+                <a href="#analytics" class="nav-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#messages" class="nav-item">
+                    <i class="fas fa-comments"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#profile" class="nav-item">
+                    <i class="fas fa-user-md"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active">
+                <div class="section-header">
+                    <h1>Welcome back, Dr. Smith!</h1>
+                    <p>Here's your practice overview and today's schedule</p>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>24</h3>
+                            <p>Active Patients</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>8</h3>
+                            <p>Today's Appointments</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>92%</h3>
+                            <p>Patient Satisfaction</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>6.5h</h3>
+                            <p>Hours Today</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Today's Schedule -->
+                <div class="content-grid">
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h2>Today's Schedule</h2>
+                            <button class="btn-secondary">View Full Schedule</button>
+                        </div>
+                        <div class="schedule-list">
+                            <div class="schedule-item upcoming">
+                                <div class="schedule-time">
+                                    <span class="time">09:00</span>
+                                    <span class="duration">60 min</span>
+                                </div>
+                                <div class="schedule-details">
+                                    <h4>Sarah Johnson</h4>
+                                    <p>Post-surgery rehabilitation</p>
+                                    <span class="schedule-status">In Progress</span>
+                                </div>
+                                <div class="schedule-actions">
+                                    <button class="btn-primary btn-small">Join Session</button>
+                                    <button class="btn-outline btn-small">View Notes</button>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">
+                                    <span class="time">10:30</span>
+                                    <span class="duration">45 min</span>
+                                </div>
+                                <div class="schedule-details">
+                                    <h4>Michael Chen</h4>
+                                    <p>Sports injury recovery</p>
+                                    <span class="schedule-status">Upcoming</span>
+                                </div>
+                                <div class="schedule-actions">
+                                    <button class="btn-primary btn-small">Prepare</button>
+                                    <button class="btn-outline btn-small">Reschedule</button>
+                                </div>
+                            </div>
+                            <div class="schedule-item">
+                                <div class="schedule-time">
+                                    <span class="time">14:00</span>
+                                    <span class="duration">30 min</span>
+                                </div>
+                                <div class="schedule-details">
+                                    <h4>Emma Davis</h4>
+                                    <p>Progress review</p>
+                                    <span class="schedule-status">Confirmed</span>
+                                </div>
+                                <div class="schedule-actions">
+                                    <button class="btn-primary btn-small">Prepare</button>
+                                    <button class="btn-outline btn-small">Reschedule</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Patient Progress Overview -->
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h2>Patient Progress</h2>
+                            <div class="chart-controls">
+                                <button class="btn-chart active">Week</button>
+                                <button class="btn-chart">Month</button>
+                            </div>
+                        </div>
+                        <div class="progress-overview">
+                            <div class="progress-summary">
+                                <div class="progress-item">
+                                    <span class="progress-label">Excellent Progress</span>
+                                    <span class="progress-count">8 patients</span>
+                                </div>
+                                <div class="progress-item">
+                                    <span class="progress-label">Good Progress</span>
+                                    <span class="progress-count">12 patients</span>
+                                </div>
+                                <div class="progress-item">
+                                    <span class="progress-label">Needs Attention</span>
+                                    <span class="progress-count">4 patients</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="content-card">
+                    <div class="card-header">
+                        <h2>Recent Activities</h2>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon success">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Session Completed</h4>
+                                <p>Completed rehabilitation session with Sarah Johnson</p>
+                                <span class="activity-time">1 hour ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon info">
+                                <i class="fas fa-file-medical"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Treatment Plan Updated</h4>
+                                <p>Updated treatment plan for Michael Chen based on progress</p>
+                                <span class="activity-time">3 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Patient Alert</h4>
+                                <p>Emma Davis missed her scheduled exercise session</p>
+                                <span class="activity-time">5 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Patients Section -->
+            <section id="patients" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Patient Management</h1>
+                    <button class="btn-primary">Add New Patient</button>
+                </div>
+
+                <!-- Patient Filters -->
+                <div class="patient-filters">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search patients...">
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active">All</button>
+                        <button class="filter-btn">Active</button>
+                        <button class="filter-btn">Discharged</button>
+                        <button class="filter-btn">High Priority</button>
+                    </div>
+                </div>
+
+                <!-- Patient List -->
+                <div class="patient-grid">
+                    <div class="patient-card">
+                        <div class="patient-header">
+                            <img src="https://via.placeholder.com/60x60" alt="Patient Avatar" class="patient-avatar">
+                            <div class="patient-info">
+                                <h3>Sarah Johnson</h3>
+                                <p>Post-surgery rehabilitation</p>
+                                <span class="patient-status active">Active</span>
+                            </div>
+                            <div class="patient-actions">
+                                <button class="btn-outline btn-small">View</button>
+                                <button class="btn-primary btn-small">Message</button>
+                            </div>
+                        </div>
+                        <div class="patient-progress">
+                            <div class="progress-item">
+                                <span>Recovery Score</span>
+                                <span class="progress-value">85%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span>Last Session</span>
+                                <span class="progress-value">2 days ago</span>
+                            </div>
+                            <div class="progress-item">
+                                <span>Next Appointment</span>
+                                <span class="progress-value">Tomorrow</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="patient-card">
+                        <div class="patient-header">
+                            <img src="https://via.placeholder.com/60x60" alt="Patient Avatar" class="patient-avatar">
+                            <div class="patient-info">
+                                <h3>Michael Chen</h3>
+                                <p>Sports injury recovery</p>
+                                <span class="patient-status active">Active</span>
+                            </div>
+                            <div class="patient-actions">
+                                <button class="btn-outline btn-small">View</button>
+                                <button class="btn-primary btn-small">Message</button>
+                            </div>
+                        </div>
+                        <div class="patient-progress">
+                            <div class="progress-item">
+                                <span>Recovery Score</span>
+                                <span class="progress-value">72%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span>Last Session</span>
+                                <span class="progress-value">1 week ago</span>
+                            </div>
+                            <div class="progress-item">
+                                <span>Next Appointment</span>
+                                <span class="progress-value">Today</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="patient-card">
+                        <div class="patient-header">
+                            <img src="https://via.placeholder.com/60x60" alt="Patient Avatar" class="patient-avatar">
+                            <div class="patient-info">
+                                <h3>Emma Davis</h3>
+                                <p>Chronic pain management</p>
+                                <span class="patient-status warning">Needs Attention</span>
+                            </div>
+                            <div class="patient-actions">
+                                <button class="btn-outline btn-small">View</button>
+                                <button class="btn-primary btn-small">Message</button>
+                            </div>
+                        </div>
+                        <div class="patient-progress">
+                            <div class="progress-item">
+                                <span>Recovery Score</span>
+                                <span class="progress-value">45%</span>
+                            </div>
+                            <div class="progress-item">
+                                <span>Last Session</span>
+                                <span class="progress-value">3 days ago</span>
+                            </div>
+                            <div class="progress-item">
+                                <span>Next Appointment</span>
+                                <span class="progress-value">Friday</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Appointments Section -->
+            <section id="appointments" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Appointment Management</h1>
+                    <button class="btn-primary">Schedule Appointment</button>
+                </div>
+
+                <!-- Calendar View -->
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button class="btn-outline"><i class="fas fa-chevron-left"></i></button>
+                        <h2>December 2024</h2>
+                        <button class="btn-outline"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="calendar-grid">
+                        <!-- Calendar days would be generated here -->
+                        <div class="calendar-day">
+                            <span class="day-number">1</span>
+                            <div class="appointment-dot"></div>
+                        </div>
+                        <div class="calendar-day">
+                            <span class="day-number">2</span>
+                            <div class="appointment-dot"></div>
+                        </div>
+                        <div class="calendar-day today">
+                            <span class="day-number">3</span>
+                            <div class="appointment-dot active"></div>
+                        </div>
+                        <!-- More calendar days... -->
+                    </div>
+                </div>
+
+                <!-- Appointment List -->
+                <div class="appointment-list">
+                    <div class="appointment-card upcoming">
+                        <div class="appointment-date">
+                            <div class="date-number">15</div>
+                            <div class="date-month">Dec</div>
+                        </div>
+                        <div class="appointment-details">
+                            <h3>Sarah Johnson</h3>
+                            <p>Post-surgery rehabilitation</p>
+                            <span class="appointment-time">10:00 AM - 11:00 AM</span>
+                        </div>
+                        <div class="appointment-actions">
+                            <button class="btn-secondary">Reschedule</button>
+                            <button class="btn-outline">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Treatment Plans Section -->
+            <section id="treatment-plans" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Treatment Plans</h1>
+                    <button class="btn-primary">Create New Plan</button>
+                </div>
+
+                <div class="treatment-grid">
+                    <div class="treatment-card">
+                        <div class="treatment-header">
+                            <h3>Post-Surgery Rehabilitation</h3>
+                            <span class="treatment-status active">Active</span>
+                        </div>
+                        <div class="treatment-info">
+                            <p><strong>Patient:</strong> Sarah Johnson</p>
+                            <p><strong>Duration:</strong> 8 weeks</p>
+                            <p><strong>Progress:</strong> 75% complete</p>
+                        </div>
+                        <div class="treatment-exercises">
+                            <h4>Current Exercises</h4>
+                            <ul>
+                                <li>Walking exercises - 20 min daily</li>
+                                <li>Strength training - 30 min 3x/week</li>
+                                <li>Balance exercises - 15 min daily</li>
+                            </ul>
+                        </div>
+                        <div class="treatment-actions">
+                            <button class="btn-primary">Update Plan</button>
+                            <button class="btn-outline">View Details</button>
+                        </div>
+                    </div>
+
+                    <div class="treatment-card">
+                        <div class="treatment-header">
+                            <h3>Sports Injury Recovery</h3>
+                            <span class="treatment-status active">Active</span>
+                        </div>
+                        <div class="treatment-info">
+                            <p><strong>Patient:</strong> Michael Chen</p>
+                            <p><strong>Duration:</strong> 6 weeks</p>
+                            <p><strong>Progress:</strong> 60% complete</p>
+                        </div>
+                        <div class="treatment-exercises">
+                            <h4>Current Exercises</h4>
+                            <ul>
+                                <li>Range of motion exercises</li>
+                                <li>Progressive strength training</li>
+                                <li>Sport-specific drills</li>
+                            </ul>
+                        </div>
+                        <div class="treatment-actions">
+                            <button class="btn-primary">Update Plan</button>
+                            <button class="btn-outline">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Practice Analytics</h1>
+                    <div class="analytics-period">
+                        <button class="btn-chart active">This Month</button>
+                        <button class="btn-chart">Last 3 Months</button>
+                        <button class="btn-chart">This Year</button>
+                    </div>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Patient Outcomes</h3>
+                        <div class="chart-container">
+                            <canvas id="outcomesChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Session Completion Rate</h3>
+                        <div class="completion-rate">
+                            <div class="rate-circle">
+                                <span class="rate-number">94%</span>
+                                <span class="rate-label">Completion Rate</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Revenue Overview</h3>
+                        <div class="revenue-stats">
+                            <div class="revenue-item">
+                                <span class="revenue-label">This Month</span>
+                                <span class="revenue-amount">$12,450</span>
+                            </div>
+                            <div class="revenue-item">
+                                <span class="revenue-label">Last Month</span>
+                                <span class="revenue-amount">$11,200</span>
+                            </div>
+                            <div class="revenue-item">
+                                <span class="revenue-label">Growth</span>
+                                <span class="revenue-growth positive">+11.2%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Messages Section -->
+            <section id="messages" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Patient Messages</h1>
+                </div>
+
+                <div class="message-list">
+                    <div class="message-item unread">
+                        <div class="message-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="message-content">
+                            <h4>Sarah Johnson</h4>
+                            <p>Hi Dr. Smith, I'm experiencing some pain during my walking exercises. Should I continue or take a break?</p>
+                            <span class="message-time">2 hours ago</span>
+                        </div>
+                        <div class="message-status">
+                            <span class="unread-dot"></span>
+                        </div>
+                    </div>
+
+                    <div class="message-item">
+                        <div class="message-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="message-content">
+                            <h4>Michael Chen</h4>
+                            <p>Thank you for the updated treatment plan. I'm making good progress with the new exercises.</p>
+                            <span class="message-time">1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Professional Profile</h1>
+                </div>
+
+                <div class="profile-content">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <img src="https://via.placeholder.com/100x100" alt="Profile Picture">
+                            <button class="btn-secondary">Change Photo</button>
+                        </div>
+
+                        <form class="profile-form">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" value="Dr. Sarah Smith">
+                            </div>
+                            <div class="form-group">
+                                <label>Professional Email</label>
+                                <input type="email" value="dr.smith@kinetic.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Specialization</label>
+                                <input type="text" value="Physical Therapy">
+                            </div>
+                            <div class="form-group">
+                                <label>License Number</label>
+                                <input type="text" value="PT-12345">
+                            </div>
+                            <div class="form-group">
+                                <label>Clinic/Hospital</label>
+                                <input type="text" value="Kinetic Rehabilitation Center">
+                            </div>
+                            <button type="submit" class="btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dashboard-script.js"></script>
+</body>
+</html> 

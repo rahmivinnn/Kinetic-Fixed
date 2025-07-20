@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KINETIC - Book Appointment</title>
+    <link rel="stylesheet" href="booking-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="booking-header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">K</div>
+                <span>KINETIC</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="auth.html">Sign In</a>
+                <button class="btn-primary">Get Started</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Booking Container -->
+    <div class="booking-container">
+        <!-- Progress Steps -->
+        <div class="progress-steps">
+            <div class="step active" data-step="1">
+                <div class="step-number">1</div>
+                <span>Select Service</span>
+            </div>
+            <div class="step" data-step="2">
+                <div class="step-number">2</div>
+                <span>Choose Practitioner</span>
+            </div>
+            <div class="step" data-step="3">
+                <div class="step-number">3</div>
+                <span>Pick Date & Time</span>
+            </div>
+            <div class="step" data-step="4">
+                <div class="step-number">4</div>
+                <span>Confirm Booking</span>
+            </div>
+        </div>
+
+        <!-- Booking Form -->
+        <div class="booking-form">
+            <!-- Step 1: Select Service -->
+            <div class="booking-step active" id="step-1">
+                <div class="step-header">
+                    <h2>Select Your Service</h2>
+                    <p>Choose the type of rehabilitation service you need</p>
+                </div>
+
+                <div class="service-grid">
+                    <div class="service-card" data-service="initial-assessment">
+                        <div class="service-icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Initial Assessment</h3>
+                            <p>Comprehensive evaluation of your condition and recovery goals</p>
+                            <div class="service-details">
+                                <span><i class="fas fa-clock"></i> 60 minutes</span>
+                                <span><i class="fas fa-dollar-sign"></i> $150</span>
+                            </div>
+                        </div>
+                        <div class="service-checkbox">
+                            <input type="radio" name="service" value="initial-assessment" id="service-1">
+                            <label for="service-1"></label>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="follow-up">
+                        <div class="service-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Follow-up Session</h3>
+                            <p>Progress review and treatment plan adjustments</p>
+                            <div class="service-details">
+                                <span><i class="fas fa-clock"></i> 45 minutes</span>
+                                <span><i class="fas fa-dollar-sign"></i> $120</span>
+                            </div>
+                        </div>
+                        <div class="service-checkbox">
+                            <input type="radio" name="service" value="follow-up" id="service-2">
+                            <label for="service-2"></label>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="specialized-treatment">
+                        <div class="service-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Specialized Treatment</h3>
+                            <p>Targeted therapy for specific conditions or injuries</p>
+                            <div class="service-details">
+                                <span><i class="fas fa-clock"></i> 90 minutes</span>
+                                <span><i class="fas fa-dollar-sign"></i> $200</span>
+                            </div>
+                        </div>
+                        <div class="service-checkbox">
+                            <input type="radio" name="service" value="specialized-treatment" id="service-3">
+                            <label for="service-3"></label>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-service="consultation">
+                        <div class="service-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Consultation</h3>
+                            <p>Expert advice and treatment recommendations</p>
+                            <div class="service-details">
+                                <span><i class="fas fa-clock"></i> 30 minutes</span>
+                                <span><i class="fas fa-dollar-sign"></i> $80</span>
+                            </div>
+                        </div>
+                        <div class="service-checkbox">
+                            <input type="radio" name="service" value="consultation" id="service-4">
+                            <label for="service-4"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Choose Practitioner -->
+            <div class="booking-step" id="step-2">
+                <div class="step-header">
+                    <h2>Choose Your Practitioner</h2>
+                    <p>Select a qualified healthcare professional for your treatment</p>
+                </div>
+
+                <div class="practitioner-grid">
+                    <div class="practitioner-card" data-practitioner="dr-smith">
+                        <div class="practitioner-avatar">
+                            <img src="https://via.placeholder.com/80x80" alt="Dr. Sarah Smith">
+                        </div>
+                        <div class="practitioner-info">
+                            <h3>Dr. Sarah Smith</h3>
+                            <p class="practitioner-specialty">Physical Therapist</p>
+                            <p class="practitioner-experience">10+ years experience</p>
+                            <div class="practitioner-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>4.9 (127 reviews)</span>
+                            </div>
+                            <div class="practitioner-specialties">
+                                <span class="specialty-tag">Sports Injury</span>
+                                <span class="specialty-tag">Post-Surgery</span>
+                                <span class="specialty-tag">Chronic Pain</span>
+                            </div>
+                        </div>
+                        <div class="practitioner-checkbox">
+                            <input type="radio" name="practitioner" value="dr-smith" id="practitioner-1">
+                            <label for="practitioner-1"></label>
+                        </div>
+                    </div>
+
+                    <div class="practitioner-card" data-practitioner="dr-johnson">
+                        <div class="practitioner-avatar">
+                            <img src="https://via.placeholder.com/80x80" alt="Dr. Michael Johnson">
+                        </div>
+                        <div class="practitioner-info">
+                            <h3>Dr. Michael Johnson</h3>
+                            <p class="practitioner-specialty">Rehabilitation Specialist</p>
+                            <p class="practitioner-experience">15+ years experience</p>
+                            <div class="practitioner-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span>4.8 (95 reviews)</span>
+                            </div>
+                            <div class="practitioner-specialties">
+                                <span class="specialty-tag">Neurological</span>
+                                <span class="specialty-tag">Geriatric</span>
+                                <span class="specialty-tag">Pediatric</span>
+                            </div>
+                        </div>
+                        <div class="practitioner-checkbox">
+                            <input type="radio" name="practitioner" value="dr-johnson" id="practitioner-2">
+                            <label for="practitioner-2"></label>
+                        </div>
+                    </div>
+
+                    <div class="practitioner-card" data-practitioner="dr-davis">
+                        <div class="practitioner-avatar">
+                            <img src="https://via.placeholder.com/80x80" alt="Dr. Emily Davis">
+                        </div>
+                        <div class="practitioner-info">
+                            <h3>Dr. Emily Davis</h3>
+                            <p class="practitioner-specialty">Sports Physiotherapist</p>
+                            <p class="practitioner-experience">8+ years experience</p>
+                            <div class="practitioner-rating">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>4.9 (203 reviews)</span>
+                            </div>
+                            <div class="practitioner-specialties">
+                                <span class="specialty-tag">Athletic Performance</span>
+                                <span class="specialty-tag">Injury Prevention</span>
+                                <span class="specialty-tag">Recovery</span>
+                            </div>
+                        </div>
+                        <div class="practitioner-checkbox">
+                            <input type="radio" name="practitioner" value="dr-davis" id="practitioner-3">
+                            <label for="practitioner-3"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Pick Date & Time -->
+            <div class="booking-step" id="step-3">
+                <div class="step-header">
+                    <h2>Select Date & Time</h2>
+                    <p>Choose a convenient time for your appointment</p>
+                </div>
+
+                <div class="datetime-selection">
+                    <div class="calendar-section">
+                        <div class="calendar-header">
+                            <button class="btn-calendar" id="prev-month">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <h3 id="current-month">December 2024</h3>
+                            <button class="btn-calendar" id="next-month">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        <div class="calendar-grid" id="calendar">
+                            <!-- Calendar will be generated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="time-selection">
+                        <h3>Available Times</h3>
+                        <div class="time-slots" id="time-slots">
+                            <!-- Time slots will be generated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Confirm Booking -->
+            <div class="booking-step" id="step-4">
+                <div class="step-header">
+                    <h2>Confirm Your Booking</h2>
+                    <p>Review your appointment details before confirming</p>
+                </div>
+
+                <div class="booking-summary">
+                    <div class="summary-card">
+                        <h3>Appointment Details</h3>
+                        <div class="summary-item">
+                            <span class="summary-label">Service:</span>
+                            <span class="summary-value" id="summary-service">Initial Assessment</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Practitioner:</span>
+                            <span class="summary-value" id="summary-practitioner">Dr. Sarah Smith</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Date:</span>
+                            <span class="summary-value" id="summary-date">December 15, 2024</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Time:</span>
+                            <span class="summary-value" id="summary-time">10:00 AM</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Duration:</span>
+                            <span class="summary-value" id="summary-duration">60 minutes</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Cost:</span>
+                            <span class="summary-value" id="summary-cost">$150</span>
+                        </div>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>Patient Information</h3>
+                        <form class="patient-form">
+                            <div class="form-group">
+                                <label for="patient-name">Full Name</label>
+                                <input type="text" id="patient-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patient-email">Email</label>
+                                <input type="email" id="patient-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patient-phone">Phone</label>
+                                <input type="tel" id="patient-phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="patient-condition">Primary Condition/Concern</label>
+                                <textarea id="patient-condition" rows="3" placeholder="Briefly describe your condition or what you'd like to address"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="booking-navigation">
+            <button class="btn-secondary" id="prev-btn" style="display: none;">Previous</button>
+            <button class="btn-primary" id="next-btn">Next</button>
+            <button class="btn-primary" id="confirm-btn" style="display: none;">Confirm Booking</button>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Booking Confirmed!</h2>
+            </div>
+            <div class="modal-body">
+                <p>Your appointment has been successfully scheduled. You will receive a confirmation email shortly.</p>
+                <div class="confirmation-details">
+                    <div class="confirmation-item">
+                        <strong>Appointment ID:</strong>
+                        <span id="appointment-id">APT-2024-001</span>
+                    </div>
+                    <div class="confirmation-item">
+                        <strong>Date:</strong>
+                        <span id="confirmation-date">December 15, 2024</span>
+                    </div>
+                    <div class="confirmation-item">
+                        <strong>Time:</strong>
+                        <span id="confirmation-time">10:00 AM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="window.location.href='patient-dashboard.html'">Go to Dashboard</button>
+                <button class="btn-secondary" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="booking-script.js"></script>
+</body>
+</html> 

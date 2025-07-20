@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KINETIC - Authentication</title>
+    <link rel="stylesheet" href="auth-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Tabs -->
+    <nav class="auth-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">AI</div>
+                <span>KINETIC</span>
+            </div>
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-tab="signup">Patient Sign-Up</button>
+                <button class="nav-tab" data-tab="signin">Patient Sign-In</button>
+                <button class="nav-tab" data-tab="practitioner">Practitioner Portal</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Patient Sign-Up Screen -->
+    <div class="auth-screen active" id="signup-screen">
+        <div class="auth-container">
+            <div class="auth-header">
+                <div class="logo-large">
+                    <div class="logo-icon-large">AI</div>
+                    <span>KINETIC</span>
+                </div>
+                <h1>Create your account</h1>
+                <div class="role-selector">
+                    <label class="role-option">
+                        <input type="radio" name="role" value="patient" checked>
+                        <span class="radio-custom"></span>
+                        Patient
+                    </label>
+                    <label class="role-option">
+                        <input type="radio" name="role" value="physiotherapist">
+                        <span class="radio-custom"></span>
+                        Physiotherapist
+                    </label>
+                </div>
+            </div>
+
+            <form class="auth-form" id="signup-form">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-with-icon">
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                        <span class="input-icon">📧</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-with-icon">
+                        <input type="password" id="password" name="password" placeholder="Create a password (min. 8 characters)" minlength="8" required>
+                        <span class="input-icon password-toggle">👁️</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-with-icon">
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                        <span class="input-icon password-toggle">👁️</span>
+                    </div>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="acceptTerms" name="acceptTerms" required>
+                        <span class="checkbox-custom"></span>
+                        I agree to the Terms of Service and Privacy Policy
+                    </label>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="acceptUpdates" name="acceptUpdates">
+                        <span class="checkbox-custom"></span>
+                        I consent to receive email updates about new features
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-primary">Create Account</button>
+            </form>
+
+            <div class="divider">
+                <span>Or sign up with</span>
+            </div>
+
+            <div class="social-buttons">
+                <button class="btn-social" onclick="signInWithGoogle()">
+                    <span class="social-icon">G</span>
+                    Google
+                </button>
+                <button class="btn-social" onclick="signInWithApple()">
+                    <span class="social-icon">🍎</span>
+                    Apple
+                </button>
+            </div>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="#" onclick="switchTab('signin')">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Patient Sign-In Screen -->
+    <div class="auth-screen" id="signin-screen">
+        <div class="auth-container">
+            <div class="auth-header">
+                <div class="logo-large">
+                    <div class="logo-icon-large">AI</div>
+                    <span>KINETIC</span>
+                </div>
+                <h1>Sign In</h1>
+                <p class="welcome-text">Welcome back! Please enter your credentials to access your recovery program.</p>
+            </div>
+
+            <form class="auth-form" id="signin-form">
+                <div class="form-group">
+                    <label for="signinEmail">Email</label>
+                    <div class="input-with-icon">
+                        <input type="email" id="signinEmail" name="email" placeholder="Enter your email address" required>
+                        <span class="input-icon">📧</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="signinPassword">Password</label>
+                    <div class="input-with-icon">
+                        <input type="password" id="signinPassword" name="password" placeholder="Enter your password" required>
+                        <span class="input-icon password-toggle">👁️</span>
+                    </div>
+                </div>
+
+                <div class="form-group forgot-password">
+                    <a href="#" onclick="showForgotPassword()">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn-primary">Sign In</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="#" onclick="switchTab('signup')">Sign Up</a></p>
+            </div>
+
+            <div class="divider">
+                <span>Or sign in with</span>
+            </div>
+
+            <div class="social-buttons">
+                <button class="btn-social" onclick="signInWithGoogle()">
+                    <span class="social-icon">G</span>
+                    Google
+                </button>
+                <button class="btn-social" onclick="signInWithApple()">
+                    <span class="social-icon">🍎</span>
+                    Apple
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Practitioner Portal Login Screen -->
+    <div class="auth-screen" id="practitioner-screen">
+        <div class="auth-container">
+            <div class="auth-header">
+                <div class="logo-large">
+                    <div class="logo-icon-large">AI</div>
+                    <span>KINETIC</span>
+                </div>
+                <h1>Practitioner Portal</h1>
+            </div>
+
+            <div class="provider-card">
+                <div class="provider-icon">🏥</div>
+                <div class="provider-info">
+                    <h3>Provider Access</h3>
+                    <p>Manage your patients, appointments and treatment plans in one secure location</p>
+                </div>
+            </div>
+
+            <form class="auth-form" id="practitioner-form">
+                <div class="form-group">
+                    <label for="professionalEmail">Professional Email</label>
+                    <div class="input-with-icon">
+                        <input type="email" id="professionalEmail" name="email" placeholder="Enter your work email address" required>
+                        <span class="input-icon">📧</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="practitionerPassword">Password</label>
+                    <div class="input-with-icon">
+                        <input type="password" id="practitionerPassword" name="password" placeholder="Enter your password" required>
+                        <span class="input-icon password-toggle">👁️</span>
+                    </div>
+                </div>
+
+                <div class="form-group forgot-password">
+                    <a href="#" onclick="showForgotPassword()">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn-primary">Access Provider Portal</button>
+            </form>
+
+            <div class="auth-footer">
+                <p>Need clinic registration? <a href="#" onclick="contactAdmin()">Contact admin</a></p>
+            </div>
+
+            <div class="disclaimer">
+                <p>This portal is for licensed healthcare providers only. By signing in, you confirm your credentials and agree to our Terms of Service and Privacy Policy.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success/Error Messages -->
+    <div id="message-container" class="message-container"></div>
+
+    <script src="auth-script.js"></script>
+</body>
+</html> 

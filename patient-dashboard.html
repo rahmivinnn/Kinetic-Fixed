@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KINETIC - Patient Dashboard</title>
+    <link rel="stylesheet" href="dashboard-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="dashboard-header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">K</div>
+                <span>KINETIC</span>
+            </div>
+            <div class="header-actions">
+                <div class="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-menu">
+                    <img src="https://via.placeholder.com/40x40" alt="User Avatar" class="user-avatar">
+                    <span class="user-name">Sarah Johnson</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <nav class="sidebar-nav">
+                <a href="#overview" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Overview</span>
+                </a>
+                <a href="#exercises" class="nav-item">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Exercises</span>
+                </a>
+                <a href="#progress" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Progress</span>
+                </a>
+                <a href="#appointments" class="nav-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Appointments</span>
+                </a>
+                <a href="#messages" class="nav-item">
+                    <i class="fas fa-comments"></i>
+                    <span>Messages</span>
+                </a>
+                <a href="#profile" class="nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="dashboard-section active">
+                <div class="section-header">
+                    <h1>Welcome back, Sarah!</h1>
+                    <p>Here's your recovery progress and today's activities</p>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>7</h3>
+                            <p>Days Streak</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>45 min</h3>
+                            <p>Today's Exercise</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-target"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>85%</h3>
+                            <p>Goal Completion</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>92</h3>
+                            <p>Recovery Score</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Today's Exercises -->
+                <div class="content-grid">
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h2>Today's Exercises</h2>
+                            <button class="btn-secondary">View All</button>
+                        </div>
+                        <div class="exercise-list">
+                            <div class="exercise-item">
+                                <div class="exercise-icon">
+                                    <i class="fas fa-walking"></i>
+                                </div>
+                                <div class="exercise-details">
+                                    <h4>Walking Exercise</h4>
+                                    <p>Improve gait and balance</p>
+                                    <div class="exercise-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 75%"></div>
+                                        </div>
+                                        <span>15/20 min</span>
+                                    </div>
+                                </div>
+                                <button class="btn-primary btn-small">Continue</button>
+                            </div>
+                            <div class="exercise-item">
+                                <div class="exercise-icon">
+                                    <i class="fas fa-hand-holding-heart"></i>
+                                </div>
+                                <div class="exercise-details">
+                                    <h4>Strength Training</h4>
+                                    <p>Upper body rehabilitation</p>
+                                    <div class="exercise-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 30%"></div>
+                                        </div>
+                                        <span>6/20 min</span>
+                                    </div>
+                                </div>
+                                <button class="btn-primary btn-small">Start</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Chart -->
+                    <div class="content-card">
+                        <div class="card-header">
+                            <h2>Weekly Progress</h2>
+                            <div class="chart-controls">
+                                <button class="btn-chart active">Week</button>
+                                <button class="btn-chart">Month</button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="progressChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="content-card">
+                    <div class="card-header">
+                        <h2>Recent Activity</h2>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon success">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Completed Walking Exercise</h4>
+                                <p>You completed today's walking exercise with 95% accuracy</p>
+                                <span class="activity-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon info">
+                                <i class="fas fa-calendar"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Appointment Scheduled</h4>
+                                <p>Your next session with Dr. Smith is scheduled for Friday</p>
+                                <span class="activity-time">1 day ago</span>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Exercise Reminder</h4>
+                                <p>Don't forget to complete your strength training exercise</p>
+                                <span class="activity-time">3 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exercises Section -->
+            <section id="exercises" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Exercise Library</h1>
+                    <p>Browse and complete your personalized exercise program</p>
+                </div>
+                
+                <div class="exercise-filters">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Strength</button>
+                    <button class="filter-btn">Balance</button>
+                    <button class="filter-btn">Flexibility</button>
+                    <button class="filter-btn">Cardio</button>
+                </div>
+
+                <div class="exercise-grid">
+                    <div class="exercise-card">
+                        <div class="exercise-image">
+                            <i class="fas fa-walking"></i>
+                        </div>
+                        <div class="exercise-info">
+                            <h3>Walking Exercise</h3>
+                            <p>Improve gait and balance with guided walking exercises</p>
+                            <div class="exercise-meta">
+                                <span><i class="fas fa-clock"></i> 20 min</span>
+                                <span><i class="fas fa-star"></i> Beginner</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary">Start Exercise</button>
+                    </div>
+                    
+                    <div class="exercise-card">
+                        <div class="exercise-image">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="exercise-info">
+                            <h3>Upper Body Strength</h3>
+                            <p>Build strength in your arms and shoulders</p>
+                            <div class="exercise-meta">
+                                <span><i class="fas fa-clock"></i> 30 min</span>
+                                <span><i class="fas fa-star"></i> Intermediate</span>
+                            </div>
+                        </div>
+                        <button class="btn-primary">Start Exercise</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Section -->
+            <section id="progress" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Progress Tracking</h1>
+                    <p>Monitor your recovery journey with detailed analytics</p>
+                </div>
+                
+                <div class="progress-overview">
+                    <div class="progress-card">
+                        <h3>Overall Recovery</h3>
+                        <div class="progress-circle">
+                            <div class="circle-progress" data-progress="85">
+                                <span class="progress-text">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-metrics">
+                        <div class="metric-item">
+                            <h4>Pain Level</h4>
+                            <div class="metric-value">2/10</div>
+                            <div class="metric-trend positive">↓ 1 point</div>
+                        </div>
+                        <div class="metric-item">
+                            <h4>Mobility</h4>
+                            <div class="metric-value">75%</div>
+                            <div class="metric-trend positive">↑ 5%</div>
+                        </div>
+                        <div class="metric-item">
+                            <h4>Strength</h4>
+                            <div class="metric-value">68%</div>
+                            <div class="metric-trend positive">↑ 3%</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Appointments Section -->
+            <section id="appointments" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Appointments</h1>
+                    <button class="btn-primary">Book New Appointment</button>
+                </div>
+                
+                <div class="appointment-list">
+                    <div class="appointment-card upcoming">
+                        <div class="appointment-date">
+                            <div class="date-number">15</div>
+                            <div class="date-month">Dec</div>
+                        </div>
+                        <div class="appointment-details">
+                            <h3>Dr. Sarah Smith</h3>
+                            <p>Physical Therapy Session</p>
+                            <span class="appointment-time">10:00 AM - 11:00 AM</span>
+                        </div>
+                        <div class="appointment-actions">
+                            <button class="btn-secondary">Reschedule</button>
+                            <button class="btn-outline">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Messages Section -->
+            <section id="messages" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Messages</h1>
+                </div>
+                
+                <div class="message-list">
+                    <div class="message-item unread">
+                        <div class="message-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="message-content">
+                            <h4>Dr. Sarah Smith</h4>
+                            <p>Great progress on your walking exercises! Let's schedule a follow-up...</p>
+                            <span class="message-time">2 hours ago</span>
+                        </div>
+                        <div class="message-status">
+                            <span class="unread-dot"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="dashboard-section">
+                <div class="section-header">
+                    <h1>Profile Settings</h1>
+                </div>
+                
+                <div class="profile-content">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <img src="https://via.placeholder.com/100x100" alt="Profile Picture">
+                            <button class="btn-secondary">Change Photo</button>
+                        </div>
+                        
+                        <form class="profile-form">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" value="Sarah Johnson">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" value="sarah.johnson@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" value="+1 (555) 123-4567">
+                            </div>
+                            <button type="submit" class="btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dashboard-script.js"></script>
+</body>
+</html> 

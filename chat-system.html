@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KINETIC - Chat System</title>
+    <link rel="stylesheet" href="chat-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Chat Header -->
+    <header class="chat-header">
+        <div class="header-container">
+            <div class="user-info">
+                <img src="https://via.placeholder.com/40x40" alt="User Avatar" class="user-avatar">
+                <div class="user-details">
+                    <h3>Dr. Sarah Smith</h3>
+                    <span class="status online">Online</span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn-icon" title="Voice Call">
+                    <i class="fas fa-phone"></i>
+                </button>
+                <button class="btn-icon" title="Video Call">
+                    <i class="fas fa-video"></i>
+                </button>
+                <button class="btn-icon" title="More Options">
+                    <i class="fas fa-ellipsis-v"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Chat Container -->
+    <div class="chat-container">
+        <!-- Chat Messages -->
+        <div class="chat-messages" id="chat-messages">
+            <!-- Message from practitioner -->
+            <div class="message received">
+                <div class="message-avatar">
+                    <img src="https://via.placeholder.com/32x32" alt="Dr. Sarah Smith">
+                </div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="sender-name">Dr. Sarah Smith</span>
+                        <span class="message-time">10:30 AM</span>
+                    </div>
+                    <div class="message-bubble">
+                        <p>Hi Sarah! How are you feeling today? Have you been doing your walking exercises?</p>
+                    </div>
+                    <div class="message-status">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message from patient -->
+            <div class="message sent">
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="message-time">10:32 AM</span>
+                    </div>
+                    <div class="message-bubble">
+                        <p>Hi Dr. Smith! I'm feeling much better today. I completed my walking exercise this morning and managed to walk for 15 minutes without any pain.</p>
+                    </div>
+                    <div class="message-status">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message with image -->
+            <div class="message received">
+                <div class="message-avatar">
+                    <img src="https://via.placeholder.com/32x32" alt="Dr. Sarah Smith">
+                </div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="sender-name">Dr. Sarah Smith</span>
+                        <span class="message-time">10:35 AM</span>
+                    </div>
+                    <div class="message-bubble">
+                        <p>That's excellent progress! Here's a new exercise I'd like you to try:</p>
+                        <div class="message-attachment">
+                            <div class="attachment-preview">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>New Exercise Plan.pdf</span>
+                            </div>
+                            <button class="btn-download">Download</button>
+                        </div>
+                    </div>
+                    <div class="message-status">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick reply options -->
+            <div class="message received">
+                <div class="message-avatar">
+                    <img src="https://via.placeholder.com/32x32" alt="Dr. Sarah Smith">
+                </div>
+                <div class="message-content">
+                    <div class="message-header">
+                        <span class="sender-name">Dr. Sarah Smith</span>
+                        <span class="message-time">10:40 AM</span>
+                    </div>
+                    <div class="message-bubble">
+                        <p>How would you rate your pain level today?</p>
+                        <div class="quick-replies">
+                            <button class="quick-reply">1 - No pain</button>
+                            <button class="quick-reply">2 - Mild pain</button>
+                            <button class="quick-reply">3 - Moderate pain</button>
+                            <button class="quick-reply">4 - Severe pain</button>
+                        </div>
+                    </div>
+                    <div class="message-status">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typing indicator -->
+            <div class="message received typing">
+                <div class="message-avatar">
+                    <img src="https://via.placeholder.com/32x32" alt="Dr. Sarah Smith">
+                </div>
+                <div class="message-content">
+                    <div class="message-bubble">
+                        <div class="typing-indicator">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input">
+            <div class="input-container">
+                <button class="btn-attachment" title="Attach File">
+                    <i class="fas fa-paperclip"></i>
+                </button>
+                <div class="message-input-wrapper">
+                    <textarea 
+                        id="message-input" 
+                        placeholder="Type your message..."
+                        rows="1"
+                    ></textarea>
+                    <div class="input-actions">
+                        <button class="btn-emoji" title="Emoji">
+                            <i class="fas fa-smile"></i>
+                        </button>
+                        <button class="btn-send" id="send-btn" disabled>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Attachment Modal -->
+    <div class="modal" id="attachment-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Attach File</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="attachment-options">
+                    <div class="attachment-option">
+                        <i class="fas fa-image"></i>
+                        <span>Photo</span>
+                        <input type="file" accept="image/*" id="photo-input">
+                    </div>
+                    <div class="attachment-option">
+                        <i class="fas fa-file-pdf"></i>
+                        <span>Document</span>
+                        <input type="file" accept=".pdf,.doc,.docx" id="document-input">
+                    </div>
+                    <div class="attachment-option">
+                        <i class="fas fa-video"></i>
+                        <span>Video</span>
+                        <input type="file" accept="video/*" id="video-input">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emoji Picker -->
+    <div class="emoji-picker" id="emoji-picker" style="display: none;">
+        <div class="emoji-grid">
+            <button class="emoji-btn">😊</button>
+            <button class="emoji-btn">👍</button>
+            <button class="emoji-btn">❤️</button>
+            <button class="emoji-btn">🎉</button>
+            <button class="emoji-btn">💪</button>
+            <button class="emoji-btn">🏃‍♂️</button>
+            <button class="emoji-btn">💯</button>
+            <button class="emoji-btn">✨</button>
+            <button class="emoji-btn">🔥</button>
+            <button class="emoji-btn">🌟</button>
+            <button class="emoji-btn">💡</button>
+            <button class="emoji-btn">📈</button>
+            <button class="emoji-btn">🎯</button>
+            <button class="emoji-btn">🏆</button>
+            <button class="emoji-btn">💪</button>
+        </div>
+    </div>
+
+    <script src="chat-script.js"></script>
+</body>
+</html> 
