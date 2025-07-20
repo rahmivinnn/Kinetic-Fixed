@@ -1,6 +1,6 @@
-// Patient Dashboard JavaScript
+// Practitioner Dashboard JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Patient Dashboard loaded');
+    console.log('Practitioner Dashboard loaded');
 
     // Side Menu Navigation
     const navItems = document.querySelectorAll('.nav-item');
@@ -40,47 +40,76 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Exercise Buttons Functionality
-    const exerciseButtons = document.querySelectorAll('.btn-primary');
-    exerciseButtons.forEach(button => {
+    // Session Buttons Functionality
+    const sessionButtons = document.querySelectorAll('.btn-primary');
+    sessionButtons.forEach(button => {
         button.addEventListener('click', function() {
             const buttonText = this.textContent.trim();
-            console.log('Exercise button clicked:', buttonText);
+            console.log('Session button clicked:', buttonText);
             
-            if (buttonText === 'Continue' || buttonText === 'Start' || buttonText === 'Start Exercise') {
-                // Show exercise modal or redirect to exercise page
-                showNotification('Starting exercise...', 'success');
-                
-                // Simulate exercise start
+            if (buttonText === 'Join Session') {
+                showNotification('Joining virtual session...', 'success');
                 setTimeout(() => {
-                    showNotification('Exercise started! Follow the instructions carefully.', 'success');
+                    showNotification('Session started! Patient is waiting.', 'success');
                 }, 1000);
+            } else if (buttonText === 'Prepare') {
+                showNotification('Preparing for session...', 'info');
+                setTimeout(() => {
+                    showNotification('Session preparation complete!', 'success');
+                }, 1500);
+            } else if (buttonText === 'Start Exercise') {
+                showNotification('Starting exercise session...', 'success');
+            } else if (buttonText === 'Create Treatment Plan') {
+                showNotification('Opening treatment plan creator...', 'info');
+            } else if (buttonText === 'Send Message') {
+                showNotification('Message sent successfully!', 'success');
+            } else if (buttonText === 'Save Changes') {
+                showNotification('Profile updated successfully!', 'success');
             }
         });
     });
 
-    // View All Button
-    const viewAllButtons = document.querySelectorAll('.btn-secondary');
-    viewAllButtons.forEach(button => {
+    // Secondary Buttons
+    const secondaryButtons = document.querySelectorAll('.btn-secondary');
+    secondaryButtons.forEach(button => {
         button.addEventListener('click', function() {
             const buttonText = this.textContent.trim();
             console.log('Secondary button clicked:', buttonText);
             
-            if (buttonText === 'View All') {
-                showSection('#exercises');
-                showNotification('Navigating to exercise library...', 'info');
-            } else if (buttonText === 'Book New Appointment') {
-                window.location.href = 'booking-system.html';
+            if (buttonText === 'View Full Schedule') {
+                showSection('#appointments');
+                showNotification('Navigating to full schedule...', 'info');
+            } else if (buttonText === 'Add New Patient') {
+                showNotification('Opening patient registration form...', 'info');
+            } else if (buttonText === 'Create New Plan') {
+                showNotification('Opening treatment plan creator...', 'info');
+            } else if (buttonText === 'Export Report') {
+                showNotification('Generating and downloading report...', 'success');
+            } else if (buttonText === 'Change Photo') {
+                showNotification('Photo upload functionality would be implemented here', 'info');
+            }
+        });
+    });
+
+    // Outline Buttons
+    const outlineButtons = document.querySelectorAll('.btn-outline');
+    outlineButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const buttonText = this.textContent.trim();
+            console.log('Outline button clicked:', buttonText);
+            
+            if (buttonText === 'View Notes') {
+                showNotification('Opening patient notes...', 'info');
             } else if (buttonText === 'Reschedule') {
                 showNotification('Opening reschedule dialog...', 'info');
+            } else if (buttonText === 'Edit Plan') {
+                showNotification('Opening treatment plan editor...', 'info');
+            } else if (buttonText === 'View Details') {
+                showNotification('Opening patient details...', 'info');
             } else if (buttonText === 'Cancel') {
                 if (confirm('Are you sure you want to cancel this appointment?')) {
                     showNotification('Appointment cancelled successfully', 'success');
                 }
-            } else if (buttonText === 'Change Photo') {
-                showNotification('Photo upload functionality would be implemented here', 'info');
-            } else if (buttonText === 'Save Changes') {
-                showNotification('Profile updated successfully!', 'success');
             }
         });
     });
@@ -100,18 +129,54 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Filter Buttons
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    filterButtons.forEach(button => {
+    // Patient Action Buttons
+    const patientActionButtons = document.querySelectorAll('.patient-action');
+    patientActionButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Remove active class from all filter buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
+            const action = this.getAttribute('data-action');
+            const patientName = this.closest('.patient-card').querySelector('h4').textContent;
             
-            const filterType = this.textContent.trim();
-            console.log('Filter changed to:', filterType);
-            showNotification(`Filtered exercises by: ${filterType}`, 'info');
+            console.log('Patient action:', action, 'for:', patientName);
+            
+            switch(action) {
+                case 'view':
+                    showNotification(`Opening ${patientName}'s profile...`, 'info');
+                    break;
+                case 'message':
+                    showNotification(`Opening chat with ${patientName}...`, 'info');
+                    break;
+                case 'plan':
+                    showNotification(`Creating treatment plan for ${patientName}...`, 'info');
+                    break;
+                case 'progress':
+                    showNotification(`Viewing ${patientName}'s progress...`, 'info');
+                    break;
+            }
+        });
+    });
+
+    // Appointment Actions
+    const appointmentActions = document.querySelectorAll('.appointment-action');
+    appointmentActions.forEach(button => {
+        button.addEventListener('click', function() {
+            const action = this.getAttribute('data-action');
+            const appointmentTime = this.closest('.appointment-card').querySelector('.appointment-time').textContent;
+            
+            console.log('Appointment action:', action, 'for:', appointmentTime);
+            
+            switch(action) {
+                case 'confirm':
+                    showNotification('Appointment confirmed!', 'success');
+                    break;
+                case 'reschedule':
+                    showNotification('Opening reschedule dialog...', 'info');
+                    break;
+                case 'cancel':
+                    if (confirm('Are you sure you want to cancel this appointment?')) {
+                        showNotification('Appointment cancelled successfully', 'success');
+                    }
+                    break;
+            }
         });
     });
 
@@ -133,6 +198,16 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             console.log('Profile form submitted');
             showNotification('Profile updated successfully!', 'success');
+        });
+    }
+
+    // Treatment Plan Form Submit
+    const treatmentForm = document.querySelector('.treatment-form');
+    if (treatmentForm) {
+        treatmentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.log('Treatment plan form submitted');
+            showNotification('Treatment plan created successfully!', 'success');
         });
     }
 
@@ -193,62 +268,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Progress Circle Animation
-    const progressCircles = document.querySelectorAll('.circle-progress');
-    progressCircles.forEach(circle => {
-        const progress = circle.getAttribute('data-progress');
-        const progressText = circle.querySelector('.progress-text');
-        
-        // Animate progress
-        let currentProgress = 0;
-        const targetProgress = parseInt(progress);
-        const increment = targetProgress / 50;
-        
-        const animateProgress = () => {
-            if (currentProgress < targetProgress) {
-                currentProgress += increment;
-                progressText.textContent = Math.round(currentProgress) + '%';
-                setTimeout(animateProgress, 20);
-            } else {
-                progressText.textContent = targetProgress + '%';
-            }
-        };
-        
-        // Start animation when section is visible
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateProgress();
-                    observer.unobserve(entry.target);
-                }
-            });
+    // Schedule Item Click
+    const scheduleItems = document.querySelectorAll('.schedule-item');
+    scheduleItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const patientName = this.querySelector('h4').textContent;
+            console.log('Schedule item clicked for:', patientName);
+            showNotification(`Opening details for ${patientName}...`, 'info');
         });
-        
-        observer.observe(circle);
     });
 
-    // Exercise Progress Bars Animation
-    const progressBars = document.querySelectorAll('.progress-fill');
-    progressBars.forEach(bar => {
+    // Progress Items Animation
+    const progressItems = document.querySelectorAll('.progress-item');
+    progressItems.forEach(item => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const width = bar.style.width;
-                    bar.style.width = '0%';
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(20px)';
                     setTimeout(() => {
-                        bar.style.width = width;
+                        item.style.transition = 'all 0.5s ease';
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
                     }, 100);
                     observer.unobserve(entry.target);
                 }
             });
         });
         
-        observer.observe(bar);
+        observer.observe(item);
     });
 
     // Initialize dashboard
-    console.log('Dashboard initialized successfully');
-    showNotification('Welcome to your KINETIC dashboard!', 'success');
+    console.log('Practitioner Dashboard initialized successfully');
+    showNotification('Welcome to your KINETIC Practitioner Dashboard!', 'success');
 });
 
 // Add CSS for notifications
