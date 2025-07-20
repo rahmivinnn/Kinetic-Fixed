@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KINETIC - Recovery Powered by Movement Intelligence</title>
+    <title>KINETIC - Personalized Recovery Powered by Movement Intelligence</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -17,7 +17,7 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: #1a202c;
-            background-color: #fafafa;
+            background-color: #ffffff;
         }
 
         /* Navigation */
@@ -51,7 +51,7 @@
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: #20c997;
+            background: linear-gradient(135deg, #20c997, #3b82f6);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -152,24 +152,40 @@
         }
 
         .hero-illustration {
-            background: #fdf2f8;
-            border: 2px dashed #fbb6ce;
+            background: linear-gradient(135deg, #fdf2f8, #fce7f3);
             border-radius: 20px;
             height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .hero-illustration::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .illustration-content {
+            position: relative;
+            z-index: 2;
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
             gap: 2rem;
             width: 100%;
             height: 100%;
+            padding: 2rem;
         }
 
         .illustration-item {
@@ -629,7 +645,7 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Recovery Powered by Movement Intelligence</h1>
+                <h1>Personalized Recovery Powered by Movement Intelligence</h1>
                 <p>Transform your rehabilitation with intelligent movement coaching and data-driven therapy. Our platform bridges home exercises with clinical expertise for a smoother, faster recovery experience.</p>
                 <div class="hero-buttons">
                     <a href="#start-journey" class="btn-primary">Start Your Recovery Journey</a>
@@ -666,7 +682,7 @@
     <section class="section" id="features">
         <div class="section-header">
             <h2>Smart Rehabilitation Ecosystem</h2>
-            <p>Comprehensive tools designed to enhance patient outcomes and streamline practice workflows.</p>
+            <p>Comprehensive tools designed by rehabilitation specialists and AI engineers</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
@@ -674,28 +690,28 @@
                     <i class="fas fa-brain"></i>
                 </div>
                 <h3>Movement Intelligence</h3>
-                <p>Advanced AI algorithms analyze movement patterns to provide personalized exercise recommendations and real-time feedback for optimal recovery.</p>
+                <p>Computer vision technology that analyzes each movement to ensure therapeutic effectiveness.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fas fa-clipboard-list"></i>
                 </div>
                 <h3>Responsive Therapy Plans</h3>
-                <p>Dynamic treatment plans that adapt to your progress, ensuring continuous improvement and preventing plateaus in your recovery journey.</p>
+                <p>Dynamic rehabilitation protocols that evolve based on your performance and recovery indicators.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fas fa-chart-line"></i>
                 </div>
                 <h3>Recovery Analytics</h3>
-                <p>Comprehensive data visualization and progress tracking to help you understand your recovery patterns and celebrate milestones.</p>
+                <p>Visual progress reports with actionable insights to keep your recovery on track.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
                 <h3>Clinical-Grade Privacy</h3>
-                <p>HIPAA-compliant security measures ensure your health data remains protected while enabling seamless collaboration with your care team.</p>
+                <p>Enterprise-level security ensuring your medical information meets healthcare compliance standards.</p>
             </div>
         </div>
     </section>
@@ -710,17 +726,17 @@
             <div class="step">
                 <div class="step-number">1</div>
                 <h3>Initial Assessment</h3>
-                <p>Complete a comprehensive evaluation to understand your current condition and recovery goals.</p>
+                <p>Complete a comprehensive evaluation of your condition and goals.</p>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
                 <h3>Personalized Plan</h3>
-                <p>Receive a customized treatment plan designed specifically for your needs and recovery timeline.</p>
+                <p>Receive a customized therapy program tailored to your needs.</p>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
                 <h3>Track Progress</h3>
-                <p>Monitor your improvement with real-time analytics and adjust your program as needed.</p>
+                <p>Monitor your improvements with detailed analytics and feedback.</p>
             </div>
         </div>
     </section>
@@ -738,7 +754,7 @@
                 </div>
                 <div class="practitioner-content">
                     <h3>Clinical Integration</h3>
-                    <p>Seamlessly integrate AI-powered tools into your existing workflow to enhance patient care and improve outcomes.</p>
+                    <p>Seamlessly integrate AI-powered movement analysis into your existing workflow.</p>
                 </div>
             </div>
             <div class="practitioner-card">
@@ -747,7 +763,7 @@
                 </div>
                 <div class="practitioner-content">
                     <h3>Patient Monitoring</h3>
-                    <p>Real-time patient monitoring and progress tracking to make informed treatment decisions and optimize care plans.</p>
+                    <p>Track patient progress and adherence with detailed analytics and reporting.</p>
                 </div>
             </div>
             <div class="practitioner-card">
@@ -756,7 +772,7 @@
                 </div>
                 <div class="practitioner-content">
                     <h3>Practice Growth</h3>
-                    <p>Expand your practice capabilities with advanced analytics and patient engagement tools that drive better outcomes.</p>
+                    <p>Expand your practice with remote monitoring and data-driven treatment plans.</p>
                 </div>
             </div>
         </div>
@@ -774,11 +790,11 @@
                     <div class="testimonial-avatar">SM</div>
                     <div class="testimonial-info">
                         <h4>Sarah M.</h4>
-                        <p>Post-surgery rehabilitation</p>
+                        <p>Knee Rehabilitation</p>
                     </div>
                 </div>
                 <div class="testimonial-quote">
-                    "KINETIC AI transformed my recovery journey. The personalized exercises and real-time feedback helped me regain strength faster than I ever expected."
+                    "The AI-guided exercises helped me recover faster than expected. The personalized approach made all the difference in my knee rehabilitation journey."
                 </div>
             </div>
             <div class="testimonial-card">
@@ -786,11 +802,11 @@
                     <div class="testimonial-avatar">MR</div>
                     <div class="testimonial-info">
                         <h4>Michael R.</h4>
-                        <p>Sports injury recovery</p>
+                        <p>Sports Recovery</p>
                     </div>
                 </div>
                 <div class="testimonial-quote">
-                    "The AI-powered insights helped me understand my progress better. I was back on the field in half the expected time."
+                    "The precise movement analysis ensured optimal recovery for my sports injury. I was back on the field in record time."
                 </div>
             </div>
             <div class="testimonial-card">
@@ -798,11 +814,11 @@
                     <div class="testimonial-avatar">DL</div>
                     <div class="testimonial-info">
                         <h4>David L.</h4>
-                        <p>Chronic pain management</p>
+                        <p>Back Pain Management</p>
                     </div>
                 </div>
                 <div class="testimonial-quote">
-                    "After years of struggling with chronic pain, KINETIC AI's personalized approach finally gave me the tools I needed to manage my condition effectively."
+                    "The personalized plans and progress tracking helped me manage my chronic back pain effectively. Life-changing results."
                 </div>
             </div>
         </div>
@@ -850,7 +866,7 @@
                 </div>
                 <div class="footer-column">
                     <h4>Contact</h4>
-                    <a href="mailto:support@kineticai.com">support@kineticai.com</a>
+                    <a href="mailto:support@example.com">support@example.com</a>
                     <a href="tel:+1-555-123-4567">+1 (555) 123-4567</a>
                     <a href="#">123 Recovery Street<br>Health City, HC 12345</a>
                 </div>
