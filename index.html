@@ -878,7 +878,7 @@
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for navigation links (only for internal links)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -889,6 +889,14 @@
                         block: 'start'
                     });
                 }
+            });
+        });
+
+        // Ensure external links work properly
+        document.querySelectorAll('a[href^="http"], a[href^="auth.html"], a[href^="patient-dashboard.html"], a[href^="practitioner-dashboard.html"]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                // Allow normal navigation for external and auth links
+                console.log('Navigating to:', this.getAttribute('href'));
             });
         });
 
