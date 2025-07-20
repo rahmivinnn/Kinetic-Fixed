@@ -338,10 +338,6 @@ app.get('/chat-system.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'chat-system.html'));
 });
 
-app.get('/rate-prediction.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'rate-prediction.html'));
-});
-
 // Start server
 app.listen(PORT, () => {
     console.log(`🚀 KINETIC Server running on http://localhost:${PORT}`);

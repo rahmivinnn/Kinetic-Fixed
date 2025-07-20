@@ -62,4 +62,22 @@ Thumbs.db
 
 # Temporary files
 *.tmp
-*.temp 
+*.temp
+
+# Network and unnecessary files
+*.network
+*.gs
+*.network.js
+*.gs.js
+
+# Backup files
+*.bak
+*.backup
+
+# Cache files
+.cache/
+*.cache
+
+# Build files
+dist/
+build/ 

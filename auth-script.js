@@ -405,4 +405,43 @@ window.signInWithGoogle = signInWithGoogle;
 window.signInWithApple = signInWithApple;
 window.showForgotPassword = showForgotPassword;
 window.contactAdmin = contactAdmin;
-window.logout = logout; 
+window.logout = logout;
+
+// Bypass functions for development
+function bypassToPatientDashboard() {
+    // Set mock authentication data
+    localStorage.setItem('authToken', 'bypass-token-patient');
+    localStorage.setItem('userType', 'patient');
+    localStorage.setItem('userName', 'Demo Patient');
+    localStorage.setItem('userEmail', 'patient@demo.com');
+    
+    // Show success message
+    showSuccess('Bypassing to Patient Dashboard...');
+    
+    // Redirect to patient dashboard
+    setTimeout(() => {
+        window.location.href = '/patient-dashboard.html';
+    }, 1000);
+}
+
+function bypassToPractitionerDashboard() {
+    // Set mock authentication data
+    localStorage.setItem('authToken', 'bypass-token-practitioner');
+    localStorage.setItem('userType', 'practitioner');
+    localStorage.setItem('userName', 'Dr. Demo Practitioner');
+    localStorage.setItem('userEmail', 'practitioner@demo.com');
+    localStorage.setItem('clinicId', 'DEMO001');
+    localStorage.setItem('specialization', 'Physical Therapy');
+    
+    // Show success message
+    showSuccess('Bypassing to Practitioner Dashboard...');
+    
+    // Redirect to practitioner dashboard
+    setTimeout(() => {
+        window.location.href = '/practitioner-dashboard.html';
+    }, 1000);
+}
+
+// Export bypass functions for global access
+window.bypassToPatientDashboard = bypassToPatientDashboard;
+window.bypassToPractitionerDashboard = bypassToPractitionerDashboard; 

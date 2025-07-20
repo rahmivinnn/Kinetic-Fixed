@@ -621,4 +621,86 @@ a:focus {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #A0AEC0;
+}
+
+/* Bypass Section Styles */
+.bypass-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #E2E8F0;
+}
+
+.bypass-section .divider {
+    margin-bottom: 1.5rem;
+}
+
+.bypass-section .divider span {
+    background: #F7FAFC;
+    color: #718096;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.bypass-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn-bypass {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border: 2px solid;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    width: 100%;
+}
+
+.btn-bypass.btn-patient {
+    background: #EBF8FF;
+    border-color: #63B3ED;
+    color: #2B6CB0;
+}
+
+.btn-bypass.btn-patient:hover {
+    background: #BEE3F8;
+    border-color: #4299E1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 179, 237, 0.3);
+}
+
+.btn-bypass.btn-practitioner {
+    background: #F0FFF4;
+    border-color: #68D391;
+    color: #22543D;
+}
+
+.btn-bypass.btn-practitioner:hover {
+    background: #C6F6D5;
+    border-color: #48BB78;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(104, 211, 145, 0.3);
+}
+
+.bypass-icon {
+    font-size: 1.2rem;
+}
+
+/* Responsive Design for Bypass Buttons */
+@media (max-width: 768px) {
+    .bypass-buttons {
+        gap: 0.75rem;
+    }
+    
+    .btn-bypass {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.85rem;
+    }
 } 
