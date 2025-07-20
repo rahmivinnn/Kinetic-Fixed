@@ -409,6 +409,8 @@ window.logout = logout;
 
 // Bypass functions for development
 function bypassToPatientDashboard() {
+    console.log('Bypass to Patient Dashboard clicked');
+    
     // Set mock authentication data
     localStorage.setItem('authToken', 'bypass-token-patient');
     localStorage.setItem('userType', 'patient');
@@ -420,11 +422,13 @@ function bypassToPatientDashboard() {
     
     // Redirect to patient dashboard
     setTimeout(() => {
-        window.location.href = '/patient-dashboard.html';
+        window.location.href = 'patient-dashboard.html';
     }, 1000);
 }
 
 function bypassToPractitionerDashboard() {
+    console.log('Bypass to Practitioner Dashboard clicked');
+    
     // Set mock authentication data
     localStorage.setItem('authToken', 'bypass-token-practitioner');
     localStorage.setItem('userType', 'practitioner');
@@ -438,10 +442,37 @@ function bypassToPractitionerDashboard() {
     
     // Redirect to practitioner dashboard
     setTimeout(() => {
-        window.location.href = '/practitioner-dashboard.html';
+        window.location.href = 'practitioner-dashboard.html';
     }, 1000);
 }
 
 // Export bypass functions for global access
 window.bypassToPatientDashboard = bypassToPatientDashboard;
-window.bypassToPractitionerDashboard = bypassToPractitionerDashboard; 
+window.bypassToPractitionerDashboard = bypassToPractitionerDashboard;
+
+// Add event listeners for bypass buttons
+document.addEventListener('DOMContentLoaded', function() {
+    // Add click event listeners for bypass buttons
+    const patientBypassButtons = document.querySelectorAll('.btn-bypass.btn-patient');
+    const practitionerBypassButtons = document.querySelectorAll('.btn-bypass.btn-practitioner');
+    
+    patientBypassButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Patient bypass button clicked via event listener');
+            bypassToPatientDashboard();
+        });
+    });
+    
+    practitionerBypassButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Practitioner bypass button clicked via event listener');
+            bypassToPractitionerDashboard();
+        });
+    });
+    
+    console.log('Bypass button event listeners added');
+    console.log('Patient bypass buttons found:', patientBypassButtons.length);
+    console.log('Practitioner bypass buttons found:', practitionerBypassButtons.length);
+}); 
