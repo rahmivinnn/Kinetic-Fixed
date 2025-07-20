@@ -116,20 +116,20 @@
                 <p>Already have an account? <a href="#" onclick="switchTab('signin')">Sign In</a></p>
             </div>
 
-            <!-- Bypass Links for Development -->
+            <!-- Bypass Buttons for Development -->
             <div class="bypass-section">
                 <div class="divider">
                     <span>Quick Access (Development)</span>
                 </div>
                 <div class="bypass-buttons">
-                    <a href="patient-dashboard.html" class="btn-bypass btn-patient">
+                    <button onclick="redirectToPatient()" class="btn-bypass btn-patient">
                         <span class="bypass-icon">👤</span>
                         Bypass to Patient Dashboard
-                    </a>
-                    <a href="practitioner-dashboard.html" class="btn-bypass btn-practitioner">
+                    </button>
+                    <button onclick="redirectToPractitioner()" class="btn-bypass btn-practitioner">
                         <span class="bypass-icon">👨‍⚕️</span>
                         Bypass to Practitioner Dashboard
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -190,20 +190,20 @@
                 </button>
             </div>
 
-            <!-- Bypass Links for Development -->
+            <!-- Bypass Buttons for Development -->
             <div class="bypass-section">
                 <div class="divider">
                     <span>Quick Access (Development)</span>
                 </div>
                 <div class="bypass-buttons">
-                    <a href="patient-dashboard.html" class="btn-bypass btn-patient">
+                    <button onclick="redirectToPatient()" class="btn-bypass btn-patient">
                         <span class="bypass-icon">👤</span>
                         Bypass to Patient Dashboard
-                    </a>
-                    <a href="practitioner-dashboard.html" class="btn-bypass btn-practitioner">
+                    </button>
+                    <button onclick="redirectToPractitioner()" class="btn-bypass btn-practitioner">
                         <span class="bypass-icon">👨‍⚕️</span>
                         Bypass to Practitioner Dashboard
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -260,20 +260,20 @@
                 <p>This portal is for licensed healthcare providers only. By signing in, you confirm your credentials and agree to our Terms of Service and Privacy Policy.</p>
             </div>
 
-            <!-- Bypass Links for Development -->
+            <!-- Bypass Buttons for Development -->
             <div class="bypass-section">
                 <div class="divider">
                     <span>Quick Access (Development)</span>
                 </div>
                 <div class="bypass-buttons">
-                    <a href="patient-dashboard.html" class="btn-bypass btn-patient">
+                    <button onclick="redirectToPatient()" class="btn-bypass btn-patient">
                         <span class="bypass-icon">👤</span>
                         Bypass to Patient Dashboard
-                    </a>
-                    <a href="practitioner-dashboard.html" class="btn-bypass btn-practitioner">
+                    </button>
+                    <button onclick="redirectToPractitioner()" class="btn-bypass btn-practitioner">
                         <span class="bypass-icon">👨‍⚕️</span>
                         Bypass to Practitioner Dashboard
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -283,5 +283,52 @@
     <div id="message-container" class="message-container"></div>
 
     <script src="auth-script.js"></script>
+    <script>
+        // Redirect functions
+        function redirectToPatient() {
+            console.log('Redirecting to Patient Dashboard...');
+            window.location.href = 'patient-dashboard.html';
+        }
+
+        function redirectToPractitioner() {
+            console.log('Redirecting to Practitioner Dashboard...');
+            window.location.href = 'practitioner-dashboard.html';
+        }
+
+        // Tab switching function
+        function switchTab(tabName) {
+            // Hide all screens
+            const screens = document.querySelectorAll('.auth-screen');
+            screens.forEach(screen => screen.classList.remove('active'));
+
+            // Show target screen
+            const targetScreen = document.getElementById(tabName + '-screen');
+            if (targetScreen) {
+                targetScreen.classList.add('active');
+            }
+
+            // Update nav tabs
+            const navTabs = document.querySelectorAll('.nav-tab');
+            navTabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // Social login functions
+        function signInWithGoogle() {
+            alert('Google sign-in functionality would be implemented here');
+        }
+
+        function signInWithApple() {
+            alert('Apple sign-in functionality would be implemented here');
+        }
+
+        function showForgotPassword() {
+            alert('Password reset functionality would be implemented here');
+        }
+
+        function contactAdmin() {
+            alert('Contact admin functionality would be implemented here');
+        }
+    </script>
 </body>
 </html> 
